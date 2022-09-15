@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css2?family=Secular+One&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Secular one' ;
+}
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: #60BEEB;
+}
+.container {
+    display: flex;
+    width: 100%;
+    gap: 10px;
+    padding: 10px;
+    max-width: 1050px;
+}
+section{
+    background: white;
+    border-radius: 7px;
+}
+.tools-board{
+    width: 210px;
+    padding: 15px 22px 0;
+}
+.tools-board .row{
+    margin-bottom: 20px;
+}
+.row .options{
+    list-style: none;
+    margin: 10px 0 0 5px;
+}
+.row .options .option{
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    margin-bottom:10px ;
+}
+.option:is(:hover, .active) img{
+    filter:  invert(17%) sepia(90%)  saturate(3000%) hue-rotate(900deg) brightness(100%) contrast(100%);
+}
+.option :where(span, label){
+    cursor: pointer;
+    color: purple;
+    padding-left: 10px;
+}
+.option:is(:hover, .active) :where(span, label){
+    color: #60BEEB;
+}
+.option #fill-color{
+    cursor: pointer;
+    height: 14px;
+    width: 14px;
+}
+
+#fill-color:checked ~ label{
+    color: #60BEEB;
+}
+.option #size-slider{
+    width: 100%;
+    height: 7px;
+}
+.colors .options{
+    display: flex;
+    justify-content: space-between;
+}
+.colors .option{
+    height: 20px;
+    width: 20px;
+    background:rgb(117, 57, 57);
+    border-radius: 50%;
+    margin-top: 3px;
+    position: relative;
+}
+.colors .option:nth-child(1){
+    background-color: white;
+    border: 1px solid black;
+}
+.colors .option:nth-child(2){
+    background-color: black;
+}
+.colors .option:nth-child(3){
+    background-color: #e02020;
+}
+.colors .option:nth-child(4){
+    background-color: #60d400;
+}
+.colors .option:nth-child(5){
+    background-color: #4A98f7;
+}
+.colors .option.selected::before{
+   position: absolute;
+   content: "";
+   top: 50%;
+   bottom: 50%;
+   height: 12px;
+   width: 12px;
+   background:inherit;
+   border-radius: inherit;
+   border: 2px solid white;
+  transform: translate(13%,-50%);
+}
+.colors .option:first-child.selected::before{
+    border: 1px solid #ccc;
+}
+.options #color-picker{
+    opacity: 0;
+    cursor: pointer;
+}
+.buttons button {
+    width: 100%;
+    color: white;
+    border: none;
+    outline: none;
+    padding: 11px 0 ;
+    font-size: 1rem ;
+    margin-bottom: 10px;
+    background-color: none;
+    border-radius: 5px;
+}
+.buttons .clear-canvas{
+    color: #4A98f7;
+    border: 1px solid black;
+    transition: all 0.5 ease;
+}
+.clear-canvas:hover{
+    color: grey;
+    background: lightgray;
+    cursor: pointer;
+}
+.save-img:hover{
+    color: #4A98f7;
+    background: black;
+    cursor: pointer;
+}
+.buttons .save-img{
+    background: #60BEEB;
+    border: 1px solid black;
+}
+
+.drawing-board{
+    flex: 1;
+}
+.drawing-board canvas{
+    width: 100%;
+    height: 100%;
+}
